@@ -63,10 +63,10 @@ if __name__ == '__main__':
             np.delete(priorities, taskpos)
             priorities -= priority / priorities.sum()
 
-    result = sorted(zip(priorities, notes))
+    result = sorted(zip(priorities, tasksids, notes))
 
-    for tuple in result:
-        print tuple
+    for priority, time, note in result:
+        print "%-2.2f %s" % (max(round(priority, 2), 0), note)
 
 #    import IPython
 #    IPython.embed()
